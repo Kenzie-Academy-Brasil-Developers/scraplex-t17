@@ -13,10 +13,10 @@ export const AddScrapForm = ({setScrapList}) => {
 
     const createScrap = async (formData) => {
         try {
-            //Atualizo back-end
+            //Atualizou o back-end
             const {data} = await api.post('/scraps', formData);
             
-            //Atualização de estado
+            //Atualização de estado (front-end)
             setScrapList((scrapList) => [...scrapList, data]);
             navigate("/scraplist");
         } catch (error) {

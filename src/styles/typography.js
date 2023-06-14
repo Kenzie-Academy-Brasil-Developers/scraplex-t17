@@ -35,7 +35,7 @@ export const StyledTitleThree = styled.h3`
 
 export const StyledParagraph = styled.p`
     font-family: var(--font-primary);
-    color: var(--color-black);
+    color: ${({fontColor}) => fontColor ? fontColor : "var(--color-black)"};
     line-height: 1.6;
     font-weight: 400;
 

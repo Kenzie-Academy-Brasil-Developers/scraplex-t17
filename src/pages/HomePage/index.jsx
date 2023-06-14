@@ -7,7 +7,7 @@ export const HomePage = () => {
       <div>
          <StyledContainer>
             <img src={logo} alt="Logo do Scraplex" />
-            <StyledLink to="/scraplist" buttonStyle="outline" buttonSize="lg">
+            <StyledLink to="/scraplist" buttonstyle="outline" buttonsize="lg">
                Acessar scraplex
             </StyledLink>
          </StyledContainer>

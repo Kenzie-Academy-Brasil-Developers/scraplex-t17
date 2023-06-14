@@ -1,12 +1,26 @@
 import styled, { css } from "styled-components"
 
+export const StyledFieldBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+`
+
 export const InputGeneralStyles = css`
     font-family: var(--font-primary);
     font-size: 1rem;
     color: var(--color-black);
 
  
-    background: var(--color-white);
+    background: var(--color-white);    
+
+    ${({error}) => {
+        if(error){
+            return css`
+                border: 2px solid red;
+            `
+        }
+    }}
 `
 
 export const StyledInput = styled.input`

@@ -13,8 +13,8 @@ export const Header = ({ buttonTo, buttonText }) => {
             <nav>
                <StyledLink
                   to={buttonTo ? buttonTo : "/scraplist/add"}
-                  buttonStyle="solid"
-                  buttonSize="md"
+                  buttonstyle="solid"
+                  buttonsize="md"
                >
                   {buttonText ? buttonText : "Deixar scrap"}
                </StyledLink>

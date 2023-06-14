@@ -15,8 +15,13 @@ export const ButtonStyles = css`
 
     transition: .4s;
 
-    ${({buttonSize}) => {
-        switch(buttonSize){
+    &:disabled{
+        cursor: not-allowed;
+        opacity: .5;
+    }
+
+    ${({buttonsize}) => {
+        switch(buttonsize){
             case "lg":
                 return css`
                     padding: 0 1.5rem;
@@ -30,8 +35,8 @@ export const ButtonStyles = css`
         }
     }}
 
-    ${({buttonStyle}) => {
-        switch(buttonStyle){
+    ${({buttonstyle}) => {
+        switch(buttonstyle){
             case "solid":
                 return css`
                     background: var(--color-primary);

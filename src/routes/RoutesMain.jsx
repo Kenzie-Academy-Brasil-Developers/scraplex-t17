@@ -19,7 +19,7 @@ export const RoutesMain = () => {
          }
       }
       loadScraps();
-   }, [])
+   }, []);
 
    return (
       <Routes>

@@ -1,10 +1,16 @@
-import { StyledLink } from "../../styles/buttons"
+import { StyledLink } from "../../styles/buttons";
+import logo from "../../assets/scraplex.svg";
+import { StyledContainer } from "../../styles/grid";
 
 export const HomePage = () => {
-    return(
-        <div>
-            <h1>Home Page</h1>
-            <StyledLink to="/scraplist" buttonStyle="outline" buttonSize="lg">Acessar scraplex</StyledLink>     
-        </div>
-    )
-}
+   return (
+      <div>
+         <StyledContainer>
+            <img src={logo} alt="Logo do Scraplex" />
+            <StyledLink to="/scraplist" buttonStyle="outline" buttonSize="lg">
+               Acessar scraplex
+            </StyledLink>
+         </StyledContainer>
+      </div>
+   );
+};

@@ -1,22 +1,19 @@
-import { useState } from "react"
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import { StyledButton } from "../../styles/buttons";
+import { StyledInput, StyledLabel, StyledTextarea } from "../../styles/form";
 import { StyledForm } from "./style";
 
 export const AddScrapForm = ({setScrapList}) => {
     const { register, handleSubmit, reset } = useForm();
 
-    //Para se utilizar dentro de lógicas
     const navigate = useNavigate();
 
     const createScrap = async (formData) => {
         try {
-            //Atualizou o back-end
             const {data} = await api.post('/scraps', formData);
             
-            //Atualização de estado (front-end)
             setScrapList((scrapList) => [...scrapList, data]);
             navigate("/scraplist");
         } catch (error) {
@@ -31,12 +28,12 @@ export const AddScrapForm = ({setScrapList}) => {
 
     return(
         <StyledForm onSubmit={handleSubmit(submit)}>
-            <label>Seu nome</label>
-            <input type="text" {...register("author")} />
-            <label>Seu e-mail</label>
-            <input type="text" {...register("email")} />
-            <label>Sua mensagem</label>
-            <textarea {...register("content")}></textarea>            
+            <StyledLabel>Seu nome</StyledLabel>
+            <StyledInput type="text" {...register("author")} />
+            <StyledLabel>Seu e-mail</StyledLabel>
+            <StyledInput type="text" {...register("email")} />
+            <StyledLabel>Sua mensagem</StyledLabel>
+            <StyledTextarea {...register("content")}></StyledTextarea>            
             <StyledButton buttonStyle="solid" buttonSize="md">Enviar</StyledButton>
         </StyledForm>
     )

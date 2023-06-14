@@ -22,7 +22,7 @@ export const ResetStyle = createGlobalStyle`
         list-style: none;
     }
 
-    input{
+    input, textarea{
         border-radius: 0;
         border: none;
         background: transparent;

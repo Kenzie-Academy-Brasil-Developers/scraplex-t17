@@ -1,16 +1,25 @@
-import { Link } from "react-router-dom";
 import { StyledLink } from "../../styles/buttons";
+import { Link } from "react-router-dom";
+import logo from "../../assets/scraplex.svg";
+import { StyledContainer } from "../../styles/grid";
 
-export const Header = () => {
+export const Header = ({ buttonTo, buttonText }) => {
    return (
       <header>
-         <span>Exemplo</span>
-         <nav>
-            {/* Para rotas internas (criadas pelo REACT ROUTER DOM em minha aplicação), utilizarei Link */}
-            <StyledLink to="/scraplist/add" buttonStyle="solid" buttonSize="md">
-               Deixar scrap
-            </StyledLink>
-         </nav>
+         <StyledContainer>
+            <Link to="/">
+               <img src={logo} alt="Logo do Scraplex" />
+            </Link>
+            <nav>
+               <StyledLink
+                  to={buttonTo ? buttonTo : "/scraplist/add"}
+                  buttonStyle="solid"
+                  buttonSize="md"
+               >
+                  {buttonText ? buttonText : "Deixar scrap"}
+               </StyledLink>
+            </nav>
+         </StyledContainer>
       </header>
    );
 };

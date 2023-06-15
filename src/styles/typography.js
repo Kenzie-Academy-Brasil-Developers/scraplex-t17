@@ -1,20 +1,21 @@
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 
 export const TitleStyles = css`
     font-family: var(--font-primary);
     color: var(--color-black);
     line-height: 1.6;
     font-weight: 800;
+    text-align: ${({textAlign}) => textAlign};
 
     ${({fontSize}) => {
         switch(fontSize){
             case "lg":
                 return css`
-                    font-size: 2.125rem;
+                    font-size: clamp(1.5rem, 8vw, 2.125rem);
                 `
             case "md":
                 return css`
-                    font-size: 2rem;
+                    font-size: clamp(1.4rem, 8vw, 2rem);
                 `
         }
     }}
@@ -35,7 +36,7 @@ export const StyledTitleThree = styled.h3`
 
 export const StyledParagraph = styled.p`
     font-family: var(--font-primary);
-    color: var(--color-black);
+    color: ${({fontColor}) => fontColor ? fontColor : "var(--color-black)"};
     line-height: 1.6;
     font-weight: 400;
 

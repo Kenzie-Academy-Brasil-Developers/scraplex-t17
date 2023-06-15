@@ -8,4 +8,8 @@ export const GlobalStyle = createGlobalStyle`
         --color-black: #000000;
         --color-white: #FFFFFF;
     }
+
+    body{
+        background: var(--color-secondary);
+    }
 `

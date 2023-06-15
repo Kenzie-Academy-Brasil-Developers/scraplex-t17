@@ -1,19 +1,28 @@
+import { StyledLink } from "../../styles/buttons";
 import { Link } from "react-router-dom";
+import logo from "../../assets/scraplex.svg";
+import { StyledContainer } from "../../styles/grid";
+import { StyledHeader } from "./style";
 
-export const Header = () => {
+export const Header = ({ buttonTo, buttonText }) => {
    return (
-      <header>
-         <span>Exemplo</span>
-         <nav>
-            {/* Para rotas internas (criadas pelo REACT ROUTER DOM em minha aplicação), utilizarei Link */}
-            <Link to="/">Home</Link>
-            <Link to="/scraplist">Scraplist</Link>
-            <Link to="/scraplist/add">Adicionar scrap</Link>
-            {/* Para redirecionamentos externos utilizarei a áncora padrão */}
-            <a href="https://www.google.com.br" target="_blank">
-               Google
-            </a>
-         </nav>
-      </header>
+      <StyledHeader>
+         <StyledContainer>
+            <div className="flexBox">
+               <Link to="/">
+                  <img className="logo" src={logo} alt="Logo do Scraplex" />
+               </Link>
+               <nav>
+                  <StyledLink
+                     to={buttonTo ? buttonTo : "/scraplist/add"}
+                     buttonstyle="solid"
+                     buttonsize="md"
+                  >
+                     {buttonText ? buttonText : "Deixar scrap"}
+                  </StyledLink>
+               </nav>
+            </div>
+         </StyledContainer>
+      </StyledHeader>
    );
 };

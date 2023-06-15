@@ -5,16 +5,17 @@ export const TitleStyles = css`
     color: var(--color-black);
     line-height: 1.6;
     font-weight: 800;
+    text-align: ${({textAlign}) => textAlign};
 
     ${({fontSize}) => {
         switch(fontSize){
             case "lg":
                 return css`
-                    font-size: 2.125rem;
+                    font-size: clamp(1.5rem, 8vw, 2.125rem);
                 `
             case "md":
                 return css`
-                    font-size: 2rem;
+                    font-size: clamp(1.4rem, 8vw, 2rem);
                 `
         }
     }}

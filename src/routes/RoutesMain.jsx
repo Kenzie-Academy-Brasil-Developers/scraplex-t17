@@ -26,7 +26,7 @@ export const RoutesMain = () => {
          <Route path="/" element={<HomePage />} />
          <Route path="/scraplist" element={<ScrapListPage scrapList={scrapList} />} />
          <Route path="/scraplist/add" element={<AddScrapPage setScrapList={setScrapList} />} />
-         <Route path="/scraplist/scrap" element={<ScrapPage />} />
+         <Route path="/scraplist/scrap/:id" element={<ScrapPage />} />
       </Routes>
    );
 };

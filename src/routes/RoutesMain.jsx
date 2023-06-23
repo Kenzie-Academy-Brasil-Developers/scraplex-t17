@@ -1,32 +1,27 @@
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { AddScrapPage } from "../pages/AddScrapPage";
 import { HomePage } from "../pages/HomePage";
+import { RegisterPage } from "../pages/RegisterPage";
 import { ScrapListPage } from "../pages/ScrapListPage";
 import { ScrapPage } from "../pages/ScrapPage";
-import { api } from "../services/api";
+import { ProtectedRoutes } from "./ProtectedRoutes";
+import { PublicRoutes } from "./PublicRoutes";
 
 export const RoutesMain = () => {
-   const [scrapList, setScrapList] = useState([]);
-
-   useEffect(() => {
-      const loadScraps = async () => {
-         try {
-            const {data} = await api.get('/scraps');
-            setScrapList(data);
-         } catch (error) {
-            console.log(error);
-         }
-      }
-      loadScraps();
-   }, []);
-
    return (
       <Routes>
-         <Route path="/" element={<HomePage />} />
-         <Route path="/scraplist" element={<ScrapListPage scrapList={scrapList} />} />
-         <Route path="/scraplist/add" element={<AddScrapPage setScrapList={setScrapList} />} />
+         { /* <Route path="/" element={<Navigate to="/rotaqueeuquero" />} /> */ }
+         <Route element={<PublicRoutes />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/register" element={<RegisterPage />} />
+         </Route>
+
+         <Route path="/scraplist" element={<ScrapListPage />} />
          <Route path="/scraplist/scrap/:id" element={<ScrapPage />} />
+         <Route element={<ProtectedRoutes />}>
+            <Route path="/scraplist/add" element={<AddScrapPage />} />
+         </Route>
       </Routes>
    );
 };

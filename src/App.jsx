@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { UserContext } from "./providers/UserContext";
 import { RoutesMain } from "./routes/RoutesMain";
 import { GlobalStyle } from "./styles/global";
 import { ResetStyle } from "./styles/reset";
@@ -15,11 +17,12 @@ navegar o usuário para uma página y
 */
 
 function App() {
+   const { loading } = useContext(UserContext);
    return (
       <div className="App">
          <GlobalStyle />
          <ResetStyle />
-         <RoutesMain />
+         {loading ? <p>Carregando...</p> : <RoutesMain />}         
       </div>
    );
 }
